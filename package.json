@@ -5,17 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --ext .tsx,.ts,.js,.jsx ./ --ignore-path .gitignore",
-    "lint:fix": "eslint --ext .tsx,.ts,.js,.jsx --fix ./ --ignore-path .gitignore",
-    "lint:staged": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{tsx,ts,js,jsx}": "eslint --fix --no-ignore"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint:staged"
-    }
+    "lint": "eslint --ext .tsx,.ts,.js,.jsx ./ --ignore-path .gitignore"
   },
   "repository": {
     "type": "git",
@@ -27,12 +17,24 @@
     "url": "https://github.com/matyas-igor/pr-number-action/issues"
   },
   "homepage": "https://github.com/matyas-igor/pr-number-action#readme",
+  "keywords": [
+    "github",
+    "actions",
+    "pr",
+    "number",
+    "replace"
+  ],
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/eslint-parser": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4.3.0",
-    "lint-staged": "^10.4.0",
     "prettier": "^2.1.2"
   }
 }
