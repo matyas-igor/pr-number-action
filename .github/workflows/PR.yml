@@ -1,0 +1,6 @@
+name: Update PR number
+on: [push]
+
+uses: matyas-igor/pr-number-action@v1
+with:
+  github-token: '${{ secrets.GITHUB_TOKEN }}'
