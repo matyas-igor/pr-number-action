@@ -1,4 +1,14 @@
 node_modules
+
+# Editors
+.vscode/
+.idea/
+*.iml
+
+# Logs
+logs
 *.log
+
+# Caches
 .DS_Store
 .cache
