@@ -21,15 +21,14 @@ async function run() {
 
     const newBody = body.replace(/\[#PR\]/g, variables.number)
 
-    const request = {
+    const octokit = github.getOctokit(inputs.token)
+
+    const response = await octokit.pulls.update({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       pull_number: github.context.payload.pull_request.number,
       body: newBody,
-    }
-
-    const client = new github.GitHub(inputs.token)
-    const response = await client.pulls.update(request)
+    })
 
     if (response.status !== 200) {
       throw new Error(`Updating the pull-request finished with status: [${response.status}]`)
