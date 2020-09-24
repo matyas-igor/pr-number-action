@@ -22,7 +22,12 @@ And inside `.github/workflows/PR.yml`:
 name: Update PR number
 on: [pull_request]
 
-uses: matyas-igor/pr-number-action@v1
-with:
-  github-token: "${{ secrets.GITHUB_TOKEN }}"
+jobs:
+  update:
+    name: Update description
+    runs-on: ubuntu-latest
+    steps:
+    - uses: matyas-igor/pr-number-action@v1
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
 ```
