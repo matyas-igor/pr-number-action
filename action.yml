@@ -1,6 +1,9 @@
 name: 'PR number'
 description: 'Replaces [#PR] with an actual PR number in a description body'
 author: 'Igor Matias'
+branding:
+  icon: 'check'
+  color: 'gray-dark'
 runs:
   using: 'node12'
   main: 'index.js'
