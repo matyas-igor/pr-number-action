@@ -24,7 +24,7 @@ on: [pull_request]
 
 jobs:
   update:
-    name: Update description
+    name: Update PR number
     runs-on: ubuntu-latest
     steps:
     - uses: matyas-igor/pr-number-action@v1
