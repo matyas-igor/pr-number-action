@@ -20,7 +20,7 @@ And inside `.github/workflows/PR.yml`:
 
 ```
 name: Update PR number
-on: [push]
+on: [pull_request]
 
 uses: matyas-igor/pr-number-action@v1
 with:
