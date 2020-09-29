@@ -14,20 +14,23 @@ async function run() {
       number: github.context.payload.pull_request.number,
     }
 
-    const body = github.context.payload.pull_request.body
-    if (!body) {
-      return
-    }
-
-    const newBody = body.replace(/\[#PR\]/g, variables.number)
-
     const octokit = github.getOctokit(inputs.token)
+
+    // Pull-request GET format: https://developer.github.com/v3/pulls/#get-a-pull-request
+    const {
+      data: { body },
+    } = await octokit.pulls.get({
+      owner: github.context.repo.owner,
+      repo: github.context.repo.repo,
+      pull_number: github.context.payload.pull_request.number,
+      mediaType: { format: 'diff' },
+    })
 
     const response = await octokit.pulls.update({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       pull_number: github.context.payload.pull_request.number,
-      body: newBody,
+      body: body.replace(/\[#PR\]/g, variables.number),
     })
 
     if (response.status !== 200) {
