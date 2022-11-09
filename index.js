@@ -23,8 +23,11 @@ async function run() {
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       pull_number: github.context.payload.pull_request.number,
-      mediaType: { format: 'diff' },
     })
+
+    if (!body) {
+      return
+    }
 
     const response = await octokit.pulls.update({
       owner: github.context.repo.owner,
