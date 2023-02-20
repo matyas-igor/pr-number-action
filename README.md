@@ -10,9 +10,9 @@ This action looks at the description of a pull-request and replaces `[#PR]` with
 
 ### `pattern`
 
-Regular expression pattern to use for replacement.
+Pattern to use for ID replacement.
 
-_Optional_ `\[#PR\]`
+_Optional_ `[#PR]`
 
 ## Usage
 
@@ -36,5 +36,5 @@ jobs:
     - uses: matyas-igor/pr-number-action@v1
       with:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
-        # pattern: "\[#PR\]"
+        # pattern: "[#PR]"
 ```

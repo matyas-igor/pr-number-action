@@ -12,6 +12,6 @@ inputs:
     description: 'GitHub token'
     required: true
   pattern:
-    description: 'Regular expression pattern to replace (default: "\[#PR\]").'
+    description: 'Pattern to use for ID replacement (default: "[#PR]").'
     required: false
-    default: '\[#PR\]'
+    default: '[#PR]'
