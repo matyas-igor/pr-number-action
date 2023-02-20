@@ -11,3 +11,7 @@ inputs:
   github-token:
     description: 'GitHub token'
     required: true
+  pattern:
+    description: 'Pattern to use for ID replacement (default: "[#PR]").'
+    required: false
+    default: '[#PR]'

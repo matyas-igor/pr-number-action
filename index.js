@@ -7,6 +7,7 @@ async function run() {
   try {
     const inputs = {
       token: core.getInput('github-token', { required: true }),
+      pattern: core.getInput('pattern', { required: true }),
     }
 
     // Pull-request format: https://developer.github.com/v3/pulls/#response
@@ -33,7 +34,7 @@ async function run() {
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       pull_number: github.context.payload.pull_request.number,
-      body: body.replace(/\[#PR\]/g, variables.number),
+      body: body.replaceAll(inputs.pattern, variables.number),
     })
 
     if (response.status !== 200) {
