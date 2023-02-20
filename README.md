@@ -8,6 +8,12 @@ This action looks at the description of a pull-request and replaces `[#PR]` with
 
 **Required** `${{ secrets.GITHUB_TOKEN }}`
 
+### `pattern`
+
+Regular expression pattern to use for replacement.
+
+_Optional_ `\[#PR\]`
+
 ## Usage
 
 Inside `.github/PULL_REQUEST_TEMPLATE.md`:
@@ -30,4 +36,5 @@ jobs:
     - uses: matyas-igor/pr-number-action@v1
       with:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
+        # pattern: "\[#PR\]"
 ```
