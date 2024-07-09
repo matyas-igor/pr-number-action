@@ -1,6 +1,6 @@
 {
   "name": "pr-number-action",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Replaces [#PR] with an actual PR number in a description body",
   "main": "index.js",
   "scripts": {
